@@ -11,20 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714090244) do
+ActiveRecord::Schema.define(version: 20150723090757) do
 
   create_table "events", force: :cascade do |t|
     t.string   "location"
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
+    t.text     "desc"
+    t.string   "title"
   end
+
+  add_index "events", ["creator_id"], name: "index_events_on_creator_id"
+
+  create_table "invites", force: :cascade do |t|
+    t.integer  "attendee_id"
+    t.integer  "attended_event_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "invites", ["attended_event_id"], name: "index_invites_on_attended_event_id"
+  add_index "invites", ["attendee_id", "attended_event_id"], name: "index_invites_on_attendee_id_and_attended_event_id", unique: true
+  add_index "invites", ["attendee_id"], name: "index_invites_on_attendee_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "email"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
