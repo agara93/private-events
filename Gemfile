@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'ruby', '>= 2.2.1'
+gem 'ruby', '2.0.0'
 gem 'mandrill-api'
 gem 'rails', '4.2.1'
 gem 'bcrypt', '3.1.7'
