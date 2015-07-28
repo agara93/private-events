@@ -1,2 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.name %>
+<small><%= @user.email %></small></h1>
+
+<% if current_user?(@user) %>
+    <div class = "text-center">
+        <% link_to "Create New Event", new_event_path, class: "btn btn-lg btn-success" %>
+    </div>
+<% end %>
+
+<% if upcoming_events.any?(@event) %>
+    <h2>Upcoming: </h2>
+    <%= render 'shared/table', object: @upcoming_events %>
+<% end %>
+
+<% if previous_events.any?(@event) %>
+    <h2>Attended: </h2>
+    <%= render 'shared/table', object: @past_events %>
+<% end %>
+
+<% if user_events.any? %>
+    <h2>Created by <%= user.name %> </h2>
+    <%= render 'shared/table', object: @user.events %>
+<% end %>
