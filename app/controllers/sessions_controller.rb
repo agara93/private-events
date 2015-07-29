@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
       user = User.find_by(email: params[:session][:email].downcase)
       if user
-        sign_in user
+        signin user
         redirect_to user
       else
         flash.now[:warning]="You're not registered, please sign up"
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-      sign_out
+      signout
       redirect_to root_path
   end
 end
