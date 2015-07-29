@@ -6,7 +6,7 @@ class InvitesController < ApplicationController
   end
 
   def destroy
-      @event = Invite.find(params[:id])attended_event
+      @event = Invite.find(params[:id]).attended_event
       current_user.cancel(@event)
       redirect_to @event
   end
