@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     
     resources :sessions,    only: [:new, :create, :destroy]
     match '/signin',    to: 'sessions#new',         via: 'get'
+    match '/signin',    to: 'sessions#create',      via: 'post'
     match '/signout',   to: 'sessions#destroy',     via: 'delete'
     
     resources :events,      only: [:new, :create, :show, :index]
