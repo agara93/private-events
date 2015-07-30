@@ -1,7 +1,9 @@
 <h1><%= @user.name %>
 <small><%= @user.email %></small></h1>
 
-<%= link_to "Create New Event", new_event_path, class: "btn btn-lg btn-success" %>
+<div class = "text-center">
+    <%= link_to "Create New Event", new_event_path, class: "btn btn-lg btn-success" %>
+</div>
 
 <% if @upcoming_events.any? %>
 <h2>Upcoming:</h2>
