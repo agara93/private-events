@@ -8,4 +8,14 @@
             <td class = "col-sm-1">Attend</td>
         </tr>
     </thead>
+    
+    <% object.each do |event| %>
+    <tr>
+        <td><%= event.date %></td>
+        <td><%= link_to event.title, event_path(event) %></td>
+        <td><%= event.location %></td>
+        <td><%= link_to event.creator.name, user_path(event.creator) %></td>
+        <td class = "text-center"><%= link_to event.attendees.count, event_path(event) %></td>
+    </tr>
+    <% end %>
 </table>
