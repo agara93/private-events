@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:session][:email].downcase)
       if user
         signin user
-        redirect_to user
+        redirect_back_or user
       else
-        flash.now[:warning]="You're not registered, please sign up"
+        flash.now[:error]="You're not registered, please sign up"
         render 'new'
       end
   end
