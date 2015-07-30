@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+git pushclass EventsController < ApplicationController
   def new
       @event = current_user.events.build
   end

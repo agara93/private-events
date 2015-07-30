@@ -7,12 +7,12 @@
     </div>
 <% end %>
 
-<% if upcoming_events.any?(@event) %>
+<% if upcoming_events.any? %>
     <h2>Upcoming: </h2>
     <%= render 'shared/table', object: @upcoming_events %>
 <% end %>
 
-<% if previous_events.any?(@event) %>
+<% if previous_events.any? %>
     <h2>Attended: </h2>
     <%= render 'shared/table', object: @past_events %>
 <% end %>
