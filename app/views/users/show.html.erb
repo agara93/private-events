@@ -7,17 +7,17 @@
     </div>
 <% end %>
 
-<% if upcoming_events.any? %>
+<% if @upcoming_events.any? %>
     <h2>Upcoming: </h2>
     <%= render 'shared/table', object: @upcoming_events %>
 <% end %>
 
-<% if previous_events.any? %>
+<% if @previous_events.any? %>
     <h2>Attended: </h2>
     <%= render 'shared/table', object: @past_events %>
 <% end %>
 
-<% if user_events.any? %>
+<% if @user_events.any? %>
     <h2>Created by <%= user.name %> </h2>
     <%= render 'shared/table', object: @user.events %>
 <% end %>
