@@ -26,4 +26,4 @@ git pushclass EventsController < ApplicationController
   def event_params
       params.require(event).permit(:title, :location, :description, :date)
   end
-end
+
