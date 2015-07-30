@@ -17,7 +17,7 @@
     <%= render 'shared/table', object: @past_events %>
 <% end %>
 
-<% if @user_events.any? %>
+<% if @user.events.any? %>
     <h2>Created by <%= user.name %> </h2>
     <%= render 'shared/table', object: @user.events %>
 <% end %>
