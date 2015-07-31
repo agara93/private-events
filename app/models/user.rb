@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     end
     
     def cancel!(event)
-       self.invetes.find_by(attended_event_id: event.id).destroy 
+       self.invites.find_by(attended_event_id: event.id).destroy 
     end
     
     private
